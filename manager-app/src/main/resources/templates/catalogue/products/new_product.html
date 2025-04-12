@@ -16,14 +16,21 @@
 
         <div class="col-7">
 
+            <div data-th-if="${errors}">
+                <h3>Допущены ошибки</h3>
+                <ul>
+                    <li data-th-each="error : ${errors}" data-th-text="${error}"></li>
+                </ul>
+            </div>
+
             <div class="mb-3">
                 <label for="title">Название</label>
-                <input type="text" placeholder="Введите название" id="title" class="form-control" name="title">
+                <input type="text" data-th-value="${payload?.title}" placeholder="Введите название" id="title" class="form-control" name="title">
             </div>
 
             <div class="mb-3">
                 <label for="details">Описание</label>
-                <textarea id="details" class="form-control" name="details"></textarea>
+                <textarea id="details" data-th-text="${payload?.details}" class="form-control" name="details"></textarea>
             </div>
 
             <div class="mb-3">
